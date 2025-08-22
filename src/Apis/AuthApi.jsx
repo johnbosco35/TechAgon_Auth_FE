@@ -15,3 +15,17 @@ export const RegisterUser = async (userDate) => {
     throw error;
   }
 };
+
+export const LoginUser = async (userDate) => {
+  try {
+    const res = await axios.post(`${Api_Base_Url}/login`, userDate);
+    if (res.status === 200) {
+      return res.data;
+    } else {
+      throw new Error("Failed to register user");
+    }
+  } catch (error) {
+    console.error("Error registering user:", error);
+    throw error;
+  }
+};
